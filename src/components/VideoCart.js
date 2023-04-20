@@ -5,11 +5,11 @@ const VideoCart = ({info}) => {
     const {channelTitle, title, thumbnails} = snippet;
 
   return (
-    <div className='py-5 px-1 w-[360px]'> 
+    <div className='py-5 px-2 w-[380px]'> 
        <img
         alt="thumbnail"
         src={thumbnails.medium.url}
-        className='w-[360px] rounded-xl hover:rounded-none'
+        className='w-[380px] rounded-xl hover:rounded-none'
        />
        <h1 className='font-bold mx-2 my-1'>{title}</h1>
        <h1 className='mx-2 my-1'>{channelTitle}</h1>

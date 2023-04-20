@@ -9,7 +9,7 @@ const SideBar = () => {
   if(!isMenuOpen) return null;
 
   return (
-    <div className='border bg-white w-56'>
+    <div className='border bg-white text-sm'>
       {/* List 1 */}
       <ul className='border p-3'>
         <Link to="/">
@@ -84,42 +84,42 @@ const SideBar = () => {
         <li className='flex p-2'>
           <img alt=""
             src=""
-            className='h-8'
+            className=''
           /> Treding
         </li>
         <li className='flex p-2'>
           <img
             alt=""
             src=""
-            className='h-7'
+            className=''
           /> shopping
         </li>
         <li className='flex'>
           <img 
             alt='' 
             src="" 
-            className='h-8'
+            className=''
           /> Music
         </li>
         <li className='flex p-2'>
           <img
             alt=""
             src=""
-            className='h-7'
+            className=''
           /> Movies & Shows
         </li>
         <li className='flex p-2'>
           <img
             alt=""
             src=""
-            className='h-7'
+            className=''
           /> Live
         </li>
         <li className='flex p-2'>
           <img
             alt=""
             src=""
-            className='h-7'
+            className=''
           /> game
         </li>
       </ul>  
