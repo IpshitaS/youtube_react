@@ -136,10 +136,10 @@ const CommentsList = ({ comments }) => {
   ));
 };
 
-const CommentContainer = () => {
+const CommentContainer = ({snippet, statistics}) => {
   return (
     <div className="px-5">
-      <h1 className="text-2xl font-semibold">Comments: </h1>
+      <h1 className="text-2xl font-semibold">Comments : </h1>
       <CommentsList comments={CommentData} />
     </div>
   );
