@@ -1,21 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { closeMenu } from '../utils/appSlice';
 import { useSearchParams } from 'react-router-dom';
 import CommentContainer from './CommentContainer';
 import WatchDetails from './WatchDetails';
 import LiveChat from './LiveChat';
+import WatchShimmir from './WatchShimmir';
 
 const WatchContiner = () => {
   const [searchParams] = useSearchParams()
   //console.log(searchParams.get("v"));
+  const [videos, setVideos] = useState([]);
+  useEffect(() => {
+    getVideos();
+  },[]);
 
+  const getVideos = async() => {
+    const data = await fetch("https://www.youtube.com/embed/" + searchParams.get("v"));
+    setVideos(data);
+  };
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
   })
 
-  return (
+  return (videos?.length === 0) ? (<WatchShimmir/>) :  (
     <div className='flex flex-col'>
       <div className='flex'>
         {/* watch VIDEO */}

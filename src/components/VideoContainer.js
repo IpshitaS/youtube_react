@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { YOUTUBE_VIDEO_API } from '../utils/config';
 import VideoCart from './VideoCart';
 import { Link } from 'react-router-dom';
+import Shimmer from './Shimmer';
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
@@ -16,7 +17,7 @@ const VideoContainer = () => {
     setVideos(json.items);
   };
 
-  return (
+  return (videos?.length === 0) ? (<Shimmer/>) :  (
     <div className='flex flex-wrap justify-center'>
       {
         videos.map((video) => (

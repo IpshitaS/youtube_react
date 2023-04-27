@@ -1,6 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import {MdHomeFilled, MdOutlineSubscriptions, MdOutlineLibraryAddCheck, MdHistory, MdOutlineWatchLater, MdSaveAlt, MdOutlineLocalFireDepartment, MdOutlineShoppingBag, MdOutlineMusicNote, MdOutlineSettings, MdOutlinedFlag, MdOutlineHelpOutline} from 'react-icons/md';
+import {BsCameraReels} from 'react-icons/bs';
+import { RxVideo} from 'react-icons/rx';
+import { AiOutlineLike} from 'react-icons/ai';
+import { RiMovie2Fill, RiLiveLine, RiFeedbackLine} from 'react-icons/ri';
+import { GrGamepad} from 'react-icons/gr';
 
 const SideBar = () => {
   
@@ -9,120 +15,42 @@ const SideBar = () => {
   if(!isMenuOpen) return null;
 
   return (
-    <div className='border bg-white text-sm'>
+    <div className='border bg-white'>
       {/* List 1 */}
-      <ul className='border p-3'>
+      <ul className='border py-3'>
         <Link to="/">
-        <li className='flex p-2'>
-          <img alt="home"
-            src="https://static.thenounproject.com/png/3574480-200.png"
-            className='h-8'
-          /> Home
-        </li>
+          <li className='flex p-2 items-center px-6'><MdHomeFilled /><span className='pl-3'> Home</span></li>
         </Link>
-        <li className='flex p-2'>
-          <img 
-            alt='shorts' 
-            src="https://logowik.com/content/uploads/images/youtube-shorts-black3609.jpg" 
-            className='h-7'
-          />Shorts
-        </li>
-        <li className='flex p-2'>
-          <img
-            alt="subscriptions"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtp3Eq7ROQwUUvqgXGAmEYNqDmtJVipGzsVUYRZIkzvKla5eDwLPnB96blrcglXMnFtQA&usqp=CAU"
-            className='h-7'
-          /> Subscriptions
-        </li>
+        <li className='flex p-2 items-center px-6'><BsCameraReels /><span className='pl-3'>Shorts</span></li>
+        <li className='flex p-2 items-center px-6'><MdOutlineSubscriptions /><span className='pl-3'> Subscriptions</span></li>
       </ul>
-      {/* list2 */}<ul>
-        <h1>Explore</h1>
-        <li className='flex p-2'>
-          <img alt="home"
-            src="https://static.vecteezy.com/system/resources/previews/000/568/045/original/vector-library-building-icon.jpg"
-            className='h-8'
-          /> Library
-        </li>
-        <li className='flex p-2'>
-          <img
-            alt="subscriptions"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVa7N-F2_NLipMyBQqkLdc2csNfob2rs9SPw&usqp=CAU"
-            className='h-7'
-          /> History
-        </li>
-        <li className='flex'>
-          <img 
-            alt='shorts' 
-            src="https://www.iconpacks.net/icons/1/free-youtube-icon-105-thumb.png" 
-            className='h-8'
-          /> Your Video
-        </li>
-        <li className='flex p-2'>
-          <img
-            alt="subscriptions"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3pTMaGmnEKCZWlelf4TyzZ12KXD3Mls8cLQ&usqp=CAU"
-            className='h-7'
-          /> Watch Later
-        </li>
-        <li className='flex p-2'>
-          <img
-            alt="subscriptions"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnrttro5BP7R07K_ZqzXzoyrL0au6gmTKxIA&usqp=CAU"
-            className='h-7'
-          /> Liked Video
-        </li>
-        <li className='flex p-2'>
-          <img
-            alt="subscriptions"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgoEto5oM6N7bjFyKtU1-liDiyz7ANvnvvIg&usqp=CAU"
-            className='h-7'
-          /> Saved
-        </li>
+
+      {/* list2 */}
+      <ul>
+        <h1 className=' px-6 text-lg font-medium p-2'>Explore</h1>
+        <li className='flex p-2 items-center px-6'><MdOutlineLibraryAddCheck /><span className='pl-3'>Library</span> </li>
+        <li className='flex p-2 items-center px-6'><MdHistory /><span className='pl-3'> History</span></li>
+        <li className='flex p-2 items-center px-6'><RxVideo /><span className='pl-3'> Your Video</span></li>
+        <li className='flex p-2 items-center px-6'><MdOutlineWatchLater/><span className='pl-3'> Watch_Later</span></li>
+        <li className='flex p-2 items-center px-6'><AiOutlineLike/><span className='pl-3'> Liked_Video</span></li>
+        <li className='flex p-2 items-center px-6'><MdSaveAlt /><span className='pl-3'> Saved</span></li>
       </ul>
       {/* Explore */}
-      <ul className='border p-3'>
-        <li className='flex p-2'>
-          <img alt=""
-            src=""
-            className=''
-          /> Treding
-        </li>
-        <li className='flex p-2'>
-          <img
-            alt=""
-            src=""
-            className=''
-          /> shopping
-        </li>
-        <li className='flex'>
-          <img 
-            alt='' 
-            src="" 
-            className=''
-          /> Music
-        </li>
-        <li className='flex p-2'>
-          <img
-            alt=""
-            src=""
-            className=''
-          /> Movies & Shows
-        </li>
-        <li className='flex p-2'>
-          <img
-            alt=""
-            src=""
-            className=''
-          /> Live
-        </li>
-        <li className='flex p-2'>
-          <img
-            alt=""
-            src=""
-            className=''
-          /> game
-        </li>
+      <ul className='border pt-1'>
+        <li className='flex p-2 items-center px-6'><MdOutlineLocalFireDepartment /><span className='pl-3'> Trending</span></li>
+        <li className='flex p-2 items-center px-6'><MdOutlineShoppingBag /><span className='pl-3'> shopping</span></li>
+        <li className='flex p-2 items-center px-6'><MdOutlineMusicNote /><span className='pl-3'> Music</span></li>
+        <li className='flex p-2 items-center px-6'><RiMovie2Fill /><span className='pl-3'> Movies&Shows</span></li>
+        <li className='flex p-2 items-center px-6'><RiLiveLine/><span className='pl-3'> Live</span></li>
+        <li className='flex p-2 items-center px-6'><GrGamepad/><span className='pl-3'> game</span></li>
       </ul>  
+      {/* Explore */}
+      <ul className='border pt-1'>
+        <li className='flex p-2 items-center px-6'><MdOutlineSettings /><span className='pl-3'> Setting</span></li>
+        <li className='flex p-2 items-center px-6'><MdOutlinedFlag /><span className='pl-3'> Report_history</span></li>
+        <li className='flex p-2 items-center px-6'><MdOutlineHelpOutline /><span className='pl-3'> Help</span></li>
+        <li className='flex p-2 items-center px-6'><RiFeedbackLine/><span className='pl-3'> Send_feedback</span></li>
+      </ul>
     </div>
     
   )
