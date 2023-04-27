@@ -15,11 +15,11 @@ const WatchDetails = ({info}) => {
         const json = await data.json();
         setVideos(json.items);
       };
-console.log(videos)
+//console.log(videos)
       return (
          <div className=''>
              {videos.map((video) => (
-               <div  key={video.id} className=''>
+               <div  key={video.id}>
                  {(video.id === info) ? <WatchInfo {...video}/> : <span></span> }
                </div>  
              ))}
