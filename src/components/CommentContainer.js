@@ -1,44 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 
 const CommentData = [
   {
-    name : "Ipshita",
+    name : "Big Brother",
     text: "very good, cool",
     replies:[],
   },
   {
-    name : "Ipshita",
-    text: "very good, cool",
+    name : "Priya",
+    text: "cool",
     replies:[
     {
-      name : "Ipshita",
-      text: "very good, cool, replies",
+      name : "Surbhi",
+      text: "Superb soul touching song",
       replies:[],
     },
     {
-      name : "Ipshita",
-      text: "very good, cool, replies",
+      name : "Srijan",
+      text: "Such a mesmerising song..",
       replies:[
       {
-        name : "Ipshita",
-        text: "very good, cool, replies",
+        name : "Mr. Shetty",
+        text: "Miss u kabir singh",
         replies:[],
       },
       {
-        name : "Ipshita",
-        text: "very good, cool, replies",
+        name : "Tanya",
+        text: "replies",
         replies:[
         {
-          name : "Ipshita",
-          text: "very good, cool, replies",
+          name : "cute-pie",
+          text: "very good, cool",
           replies:[
           {
-            name : "Ipshita",
-            text: "very good, cool, replies",
+            name : "rocky",
+            text: "very good",
             replies:[
             {
-              name : "Ipshita",
-              text: "very good, cool, replies",
+              name : "rock",
+              text: "Miss u kabir singh",
               replies:[],
             },
             ],
@@ -48,15 +49,15 @@ const CommentData = [
         ],
       },
       {
-        name : "Ipshita",
-        text: "very good, cool, replies",
+        name : "cool_gay_me",
+        text: "Superb soul touching song",
         replies:[],
       },
       ],
     },
     {
-      name : "Ipshita",
-      text: "very good, cool, replies",
+      name : "BB",
+      text: "MY HEART IS BROKEN ON THIS TIME😅💔",
       replies:[],
     },
     {
@@ -67,8 +68,28 @@ const CommentData = [
     ],
   },  
   {
-    name : "Ipshita",
+    name : "sweety",
     text: "very good, cool",
+    replies:[],
+  },
+  {
+    name : "Anu",
+    text: "very good, cool",
+    replies:[],
+  },
+  {
+    name : "cool_gay_me",
+    text: "MY HEART IS BROKEN ON THIS TIME😅💔",
+    replies:[],
+  },
+  {
+    name : "rocky",
+    text: "very good, cool",
+    replies:[],
+  },
+  {
+    name : "Butterfly",
+    text: "Miss u kabir singh",
     replies:[],
   },
   {
@@ -77,32 +98,12 @@ const CommentData = [
     replies:[],
   },
   {
-    name : "Ipshita",
+    name : "rocky",
     text: "very good, cool",
     replies:[],
   },
   {
-    name : "Ipshita",
-    text: "very good, cool",
-    replies:[],
-  },
-  {
-    name : "Ipshita",
-    text: "very good, cool",
-    replies:[],
-  },
-  {
-    name : "Ipshita",
-    text: "very good, cool",
-    replies:[],
-  },
-  {
-    name : "Ipshita",
-    text: "very good, cool",
-    replies:[],
-  },
-  {
-    name : "Ipshita",
+    name : "Butterfly",
     text: "very good, cool",
     replies:[],
   },
@@ -136,10 +137,29 @@ const CommentsList = ({ comments }) => {
   ));
 };
 
-const CommentContainer = ({snippet, statistics}) => {
+const CommentContainer = ({snippet, statistics}) => { 
+  const [liveMessage, setLiveMessage]= useState("");
+  
   return (
     <div className="px-5">
-      <h1 className="text-2xl font-semibold">Comments : </h1>
+      <form 
+        className='font-medium mx-2 p-1'
+        onSubmit={(e) => {
+          e.preventDefault()
+          setLiveMessage("")
+        }}
+        >
+        <span className='bg-indigo-300 rounded-full text-3xl px-4 ml-2 pb-[2px]'>I</span>
+        <input 
+            className='p-1 px-4 w-2/3'
+            type='text' 
+            placeholder='Add a comment...' 
+            value={liveMessage}
+            onChange={(e) => {
+                setLiveMessage(e.target.value);
+            }}
+        />
+      </form>
       <CommentsList comments={CommentData} />
     </div>
   );

@@ -15,7 +15,7 @@ const WatchDetails = ({info}) => {
         const json = await data.json();
         setVideos(json.items);
       };
-//console.log(videos)
+console.log(videos)
       return (
          <div className=''>
              {videos.map((video) => (

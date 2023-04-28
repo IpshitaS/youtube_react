@@ -8,8 +8,8 @@ const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([])
   const [showSuggestion, setShowSuggestion] = useState(false)
-  const [searchCache, setSearchCache]= useState([]);
-  
+  const [searchCache]= useState([]);
+
   const dispatch = useDispatch();
   
   //debouncing- calling after every 200ms
@@ -32,10 +32,8 @@ const Head = () => {
 
   //Clear youtube ssearch API
   const getSearchSugesestions = async() => {
-    //console.log(searchQuery);
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
-    //console.log(json[1]);
     setSuggestions(json[1]);
 
     dispatch(
@@ -67,8 +65,13 @@ const Head = () => {
           />
         </a>
       </div>
-
-      <div>
+      <form 
+        className='font-medium mx-2 p-1'
+        onSubmit={(e) => {
+          e.preventDefault()
+          setSearchQuery("")
+        }}
+        >
         <div className='flex h-10 mt-2 pt-[2px] pr-20'>
           <input type="text" 
             placeholder='Search...' 
@@ -94,7 +97,7 @@ const Head = () => {
             ))}
           </ul>
         </div>}
-      </div>
+      </form>
 
       <div className='w-20'>
         <img 

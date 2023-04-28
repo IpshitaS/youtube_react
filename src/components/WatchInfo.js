@@ -5,11 +5,17 @@ import {BiCut} from 'react-icons/bi';
 import {VscVerifiedFilled} from 'react-icons/vsc';
 import {BsBell} from 'react-icons/bs';
 
+
+
 const WatchInfo = ({snippet, statistics}) => {
   const [isClickLike, setIsClickLike] = useState(false);
   const [isClickDislike, setIsClickDislike] = useState(false);
   const [isClickShare, setIsClickShare] = useState(false);
   const [isSubscribe, setIsSubscribe] = useState(false);
+  const [showMore, setShowMore] = useState(false);
+
+    let newDate = new Date()
+    const getCurrentDate = newDate.getDate();
 
   return (
     <div className='w-[900px]'>
@@ -97,10 +103,22 @@ const WatchInfo = ({snippet, statistics}) => {
       </div>
 
       {/* info2 */}
-      <div className='bg-zinc-100 p-3 m-2 border rounded-xl w-[900px]'>
-        <h1 className='mx-2 px-3'>{(statistics?.viewCount/1000000).toFixed(1)}M views {}day ago #on Trending</h1>
-        <h1 className='w-[900px] m-2 p-1 pr-14 text-justify text-'>{snippet.description}</h1>
+      <div className='bg-zinc-100 p-3 m-2 border rounded-xl w-[900px] text-sm'>
+        <h1 className='mx-2 px-1 font-medium'>{(statistics?.viewCount/1000000).toFixed(1)}M views {getCurrentDate - (snippet.publishedAt.slice(8,10))} day ago #Trending</h1>
+        <h6>
+          {showMore ? 
+            <h1 className='w-[900px] p-1 pr-14 text-justify whitespace-pre-line'>{snippet.description}</h1> : 
+            <h1 className='w-[900px] p-1 pr-14 text-justify whitespace-pre-line'>{snippet.description.substring(0, 160)}</h1>
+          }
+          <button className="p-1 font-medium" onClick={() => setShowMore(!showMore)}>
+            {showMore ? "Show less" : "Show more"}
+          </button>
+        </h6>
       </div>
+
+      <div className="px-16 p-2">
+          <h1 className="text-lg">{statistics?.commentCount} Comments</h1>
+        </div>
     </div>
   )
 }
